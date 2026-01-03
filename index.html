@@ -4,82 +4,48 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💠</text></svg>" />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemini // System</title>
+  <title>対話</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto+Mono:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <div id="app">
-    <div class="background-animation">
-      <svg class="bg-svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-            <stop offset="0%" style="stop-color:rgba(43,43,43,0);stop-opacity:0" />
-            <stop offset="100%" style="stop-color:rgba(43,43,43,0.1);stop-opacity:1" />
-          </radialGradient>
-        </defs>
-        <circle cx="400" cy="400" r="300" class="orbit ring-1" />
-        <circle cx="400" cy="400" r="250" class="orbit ring-2" />
-        <circle cx="400" cy="400" r="100" class="orbit ring-3" />
-        <rect x="0" y="0" width="800" height="800" fill="url(#grad1)" />
-      </svg>
-      <div class="grid-overlay"></div>
-    </div>
-
     <div class="system-main-frame">
       <header class="system-header">
         <div class="logo-group">
-          <svg class="logo-icon" viewBox="0 0 100 100" width="40" height="40">
-            <path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" fill="none" stroke="currentColor" stroke-width="4" />
-            <circle cx="50" cy="50" r="10" fill="currentColor" />
-            <line x1="10" y1="30" x2="90" y2="70" stroke="currentColor" stroke-width="2" class="cross-line" />
+          <svg class="logo-icon" viewBox="0 0 100 100" width="30" height="30">
+            <rect width="100" height="100" rx="20" fill="currentColor"/>
           </svg>
-          <h1 class="brand-text">GEMINI <span class="accent">//</span> SYSTEM</h1>
+          <h1 class="brand-text">対話</h1>
         </div>
         <div class="system-info">
-          <button id="clear-btn" class="clear-button" title="Clear Memory">
+          <button id="clear-btn" class="clear-button" title="会話をリセット">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
             </svg>
-            <span>RESET</span>
+            <span>リセット</span>
           </button>
-          <div class="status-indicator">
-            <div class="blink-dot"></div>
-            <span>CONNECTED</span>
-          </div>
-          <div class="version-id">V 3.0 FLASH</div>
         </div>
       </header>
 
       <div class="viewport-frame">
-        <div class="corner-accents">
-          <span class="corner tl"></span>
-          <span class="corner tr"></span>
-          <span class="corner bl"></span>
-          <span class="corner br"></span>
-        </div>
-
         <main class="chat-container">
           <div id="chat-history" class="chat-history">
             <!-- メッセージはここに動的に挿入されます -->
             <div class="message system-intro">
               <div class="msg-content">
-                <p>>> SYSTEM INITIALIZED</p>
-                <p>>> MODEL: gemini-3-flash-preview</p>
-                <p>>> WAITING FOR USER INPUT...</p>
+                <p>ようこそ。メッセージをどうぞ。</p>
               </div>
             </div>
           </div>
 
           <div class="typing-indicator hidden" id="loading-indicator">
-            <span class="typing-text">CALCULATING RESPONSE...</span>
+            <span class="typing-text">応答を生成中...</span>
             <div class="progress-bar">
               <div class="bar-fill"></div>
             </div>
@@ -89,11 +55,11 @@
 
       <footer class="input-control-panel">
         <div class="input-wrapper">
-          <textarea id="chat-input" placeholder="ENTER COMMAND SEQUENCE..." rows="1"></textarea>
+          <textarea id="chat-input" placeholder="メッセージを入力..." rows="1"></textarea>
           <div class="input-focus-border"></div>
         </div>
         <button id="send-btn" class="send-button" type="button">
-          <span class="btn-text">TRANSMIT</span>
+          <span class="btn-text">送信</span>
           <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -101,9 +67,6 @@
         </button>
       </footer>
     </div>
-
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
   </div>
   <script type="module" src="/main.js"></script>
 </body>
